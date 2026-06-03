@@ -7,5 +7,5 @@ curl -fsSL https://get.docker.com | bash
 sudo usermod -aG docker vagrant
 
 # start swarm and save worker join command
-sudo docker swarm init --advertise-addr=10.10.10.100
-sudo docker swarm join-token worker -q > /vagrant/swarm_token.txt
+docker swarm init --advertise-addr=10.10.10.100
+docker swarm join-token worker -q > /vagrant/swarm_token.txt
