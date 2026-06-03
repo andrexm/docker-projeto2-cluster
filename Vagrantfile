@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
         vb.cpus = base_setup["cpu"]
       end
         
-      node.vm.provision "shell", path: "node.sh"
+      node.vm.provision "shell", path: "worker.sh"
     end
   end
 end
