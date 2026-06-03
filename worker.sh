@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # update system and install docker
-sudo apt-get update -y
-sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt update -y
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://get.docker.com | bash
 sudo usermod -aG docker vagrant
 
