@@ -1,1 +1,17 @@
-    docker swarm join --token SWMTKN-1-3pj8k0i4tn77bd93a0yxhgh36hxuef5q5oyg1732rztnfy29ll-a94q0ipwgrjs4xikzyb4yb3n5 10.10.10.100:2377
+#!/bin/bash
+
+# update system and install docker
+sudo apt-get update -y
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://get.docker.com | bash
+sudo usermod -aG docker vagrant
+
+# whait until the swarm token file is created by the master node
+while [ ! -f /vagrant/swarm_token.txt ]
+do
+  sleep 2
+done
+
+# read the swarm token and join the swarm
+TOKEN=$(cat /vagrant/swarm_token.txt)
+sudo docker swarm join --token $TOKEN 10.10.10.10:2377
